@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeagueGuesser Pro</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app">
+        <header class="game-header">
+            <h1 class="game-title">LEAGUESSER</h1>
+            <div class="streak-container">🔥 Sequência: <span id="streak-count">0</span></div>
+        </header>
+
+        <nav class="game-modes">
+            <button class="mode-btn active" onclick="changeMode('classic')">Clássico</button>
+            <button class="mode-btn" onclick="changeMode('splash')">Splash Art</button>
+            <button class="mode-btn" onclick="changeMode('skill')">Habilidades</button>
+        </nav>
+
+        <div id="challenge-container"></div>
+
+        <div class="search-container">
+            <input type="text" id="guess-input" placeholder="Adivinhe o campeão..." oninput="search(this.value)" autocomplete="off">
+            <div id="results" class="dropdown"></div>
+            <button class="hint-btn" onclick="giveHint()">✨ Pedir Dica</button>
+        </div>
+
+        <div class="board" id="game-board">
+            <div class="labels">
+                <span>Camp</span><span>Alcance</span><span>Gên</span><span>Pos</span><span>Região</span><span>Ano</span>
+            </div>
+            <div id="guesses"></div>
+        </div>
+    </div>
+
+    <div id="victory-screen" class="victory-screen" style="display: none;">
+        <div class="victory-content">
+            <h2 class="victory-text">VITÓRIA!</h2>
+            <div class="victory-frame">
+                <img id="victory-img" src="" alt="Campeão">
+            </div>
+            <p class="victory-champ-name">O campeão era: <span id="victory-name"></span></p>
+            <p style="font-size: 12px; color: #888; margin-top: 10px;">Reiniciando desafio...</p>
+        </div>
+    </div>
+
+    <script src="campeoes.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
